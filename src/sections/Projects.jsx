@@ -6,10 +6,14 @@ import { motion } from "framer-motion";
 import CanvasLoader from "../components/CanvasLoader";
 import DemoComputer from "../components/models/ProjectModels/DemoComputer";
 import TitleHeader from "../components/TitleHeader";
+import { useMediaQuery } from "react-responsive";
 
 const projectCount = myProjects.length;
 
 const Projects = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+
   const MotionDiv = motion.div;
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const currentProject = myProjects[selectedProjectIndex];
@@ -153,7 +157,12 @@ const Projects = () => {
               </Suspense>
             </Center>
 
-            <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+            <OrbitControls
+              enableZoom={!(isMobile || isTablet)}
+              enableRotate={!(isMobile || isTablet)}
+              enablePan={false}
+              maxPolarAngle={Math.PI / 2}
+            />
           </Canvas>
         </div>
       </div>

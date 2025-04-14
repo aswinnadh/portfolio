@@ -5,8 +5,13 @@ import { OrbitControls } from "@react-three/drei";
 import TitleHeader from "../components/TitleHeader";
 import Developer from "../components/models/Contact/Developer";
 import CanvasLoader from "../components/CanvasLoader"; // If you have a loader component
+import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {
+
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+
   const [animationName, setAnimationName] = useState("idle");
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -74,7 +79,12 @@ const Contact = () => {
                 <ambientLight intensity={1} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <directionalLight position={[10, 10, 10]} intensity={1} />
-                <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+                <OrbitControls
+  enableZoom={false}
+  enableRotate={!(isMobile || isTablet)}
+  enablePan={false}
+/>
+
                 <Suspense fallback={<CanvasLoader />}>
                   <Developer
                     position-y={-3}

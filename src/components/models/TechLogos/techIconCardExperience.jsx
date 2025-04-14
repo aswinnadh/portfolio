@@ -1,10 +1,14 @@
 import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import * as THREE from "three";
 
 const TechIconCardExperience = ({ model }) => {
   const scene = useGLTF(model.modelPath);
+  
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
   useEffect(() => {
     if (model.name === "Interactive Developer") {
@@ -53,7 +57,11 @@ const TechIconCardExperience = ({ model }) => {
         </group>
       </Float>
 
-      <OrbitControls enableZoom={false} />
+      <OrbitControls
+        enableZoom={false}
+        enableRotate={!(isMobile || isTablet)}
+        enablePan={false}
+      />
     </Canvas>
   );
 };
