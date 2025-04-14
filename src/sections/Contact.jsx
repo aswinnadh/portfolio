@@ -1,11 +1,11 @@
 import { useRef, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useMediaQuery } from "react-responsive";
 
 import TitleHeader from "../components/TitleHeader";
 import Developer from "../components/models/Contact/Developer";
 import CanvasLoader from "../components/CanvasLoader"; // If you have a loader component
-import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -19,7 +19,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const [success, setSuccess] = useState(false); // Add this to show confirmation
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,16 +34,13 @@ const Contact = () => {
     const formData = new FormData(formRef.current);
 
     try {
-      const response = await fetch(
-        "https://formsubmit.co/aswinnadh9803@gmail.com",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      );
+      const response = await fetch("https://formsubmit.co/aswinnadh9803@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
       if (response.ok) {
         setSuccess(true);
@@ -66,33 +63,45 @@ const Contact = () => {
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
+
         <div className="grid-12-cols mt-16">
-          <div
-            className={`bg-zinc-900 w-full h-full rounded-3xl overflow-hidden ${
-              isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"
-            }`}
-          >
-            <Canvas>
-              <ambientLight intensity={1} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
+          {/* 3D Model Canvas */}
+          <div className={`xl:col-span-7 min-h-96 ${
+                isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"
+              }`}>
+            <div
+              onClick={() => setAnimationName("clapping")}
+              onPointerOver={() => setAnimationName("salute")}
+              onPointerOut={() => setAnimationName("idle")}
+              className={`bg-zinc-900 w-full h-full rounded-3xl overflow-hidden ${
+                isMobile || isTablet ? "scroll-pass-through" : "hover:cursor-grab"
+              }`}
+              
+              
+            >
+              <Canvas >
+                <ambientLight intensity={1} />
+                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+                <directionalLight position={[10, 10, 10]} intensity={1} />
 
-              <OrbitControls
-                enableZoom={false}
-                enableRotate={!(isMobile || isTablet)}
-                enablePan={false}
-              />
-
-              <Suspense fallback={<CanvasLoader />}>
-                <Developer
-                  position-y={-3}
-                  scale={3}
-                  animationName={animationName}
+                <OrbitControls
+                  enableZoom={false}
+                  enableRotate={!(isMobile || isTablet)}
+                  enablePan={false}
                 />
-              </Suspense>
-            </Canvas>
+
+                <Suspense fallback={<CanvasLoader />}>
+                  <Developer
+                    position-y={-3}
+                    scale={3}
+                    animationName={animationName}
+                  />
+                </Suspense>
+              </Canvas>
+            </div>
           </div>
 
+          {/* Contact Form */}
           <div className="xl:col-span-5">
             <div className="flex-center card-border rounded-xl p-10">
               <form
@@ -104,6 +113,7 @@ const Contact = () => {
                   onClick={() => setAnimationName("victory")}
                   onPointerOver={() => setAnimationName("victory")}
                   onPointerOut={() => setAnimationName("idle")}
+                  className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
                 >
                   <label htmlFor="name">Your name</label>
                   <input
@@ -118,6 +128,7 @@ const Contact = () => {
                 </div>
 
                 <div
+                className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
                   onClick={() => setAnimationName("clapping")}
                   onPointerOver={() => setAnimationName("clapping")}
                   onPointerOut={() => setAnimationName("idle")}
@@ -135,6 +146,7 @@ const Contact = () => {
                 </div>
 
                 <div
+                className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
                   onClick={() => setAnimationName("salute")}
                   onPointerOver={() => setAnimationName("salute")}
                   onPointerOut={() => setAnimationName("idle")}
@@ -151,7 +163,8 @@ const Contact = () => {
                   />
                 </div>
 
-                <button
+                <button 
+                className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
                   onPointerOver={() => setAnimationName("victory")}
                   onPointerOut={() => setAnimationName("idle")}
                   type="submit"
@@ -166,6 +179,7 @@ const Contact = () => {
                     </div>
                   </div>
                 </button>
+
                 {success && (
                   <p className="text-green-400 text-sm mt-4 text-center">
                     ✅ Email sent successfully!

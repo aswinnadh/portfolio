@@ -23,7 +23,8 @@ const TechIconCardExperience = ({ model }) => {
   }, [scene, model.name]);
 
   return (
-    <Canvas
+    <div className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}>
+      <Canvas
       onPointerDown={(e) => e.stopPropagation()} // Prevent pointer events from interfering with scrolling
     >
       <ambientLight intensity={0.3} />
@@ -49,6 +50,7 @@ const TechIconCardExperience = ({ model }) => {
         enablePan={false}
       />
     </Canvas>
+    </div>
   );
 };
 
