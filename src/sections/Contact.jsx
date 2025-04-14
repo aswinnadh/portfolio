@@ -73,17 +73,20 @@ const Contact = () => {
               onPointerOver={() => setAnimationName("salute")}
               onPointerOut={() => setAnimationName("idle")}
               className="bg-zinc-900 w-full h-full hover:cursor-grab rounded-3xl overflow-hidden"
+              style={{
+                pointerEvents: isMobile || isTablet ? "none" : "auto", // Disable touch events on mobile/tablets
+              }}
             >
               <Canvas>
                 <ambientLight intensity={1} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <directionalLight position={[10, 10, 10]} intensity={1} />
-                
+
+                {/* Disable orbit controls entirely on mobile and tablet */}
                 <OrbitControls
                   enableZoom={false}  // Disable zoom
-                  enableRotate={!(isMobile || isTablet)} // Disable rotation on mobile/tablet
-                  enablePan={false} // Disable panning
-                  enableTouch={false}  // Disable touch events entirely on mobile/tablet
+                  enableRotate={false} // Disable rotation entirely
+                  enablePan={false}    // Disable panning
                 />
 
                 <Suspense fallback={<CanvasLoader />}>
