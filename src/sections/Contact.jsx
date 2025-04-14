@@ -67,37 +67,30 @@ const Contact = () => {
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
         <div className="grid-12-cols mt-16">
-          <div className="xl:col-span-7 min-h-96">
-            <div
-              onClick={() => setAnimationName("clapping")}
-              onPointerOver={() => setAnimationName("salute")}
-              onPointerOut={() => setAnimationName("idle")}
-              className="bg-zinc-900 w-full h-full hover:cursor-grab rounded-3xl overflow-hidden"
-              style={{
-                pointerEvents: isMobile || isTablet ? "none" : "auto", // Disable touch events on mobile/tablets
-              }}
-            >
-              <Canvas>
-                <ambientLight intensity={1} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                <directionalLight position={[10, 10, 10]} intensity={1} />
+          <div
+            className={`bg-zinc-900 w-full h-full rounded-3xl overflow-hidden ${
+              isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"
+            }`}
+          >
+            <Canvas>
+              <ambientLight intensity={1} />
+              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+              <directionalLight position={[10, 10, 10]} intensity={1} />
 
-                {/* Disable orbit controls entirely on mobile and tablet */}
-                <OrbitControls
-                  enableZoom={false}  // Disable zoom
-                  enableRotate={false} // Disable rotation entirely
-                  enablePan={false}    // Disable panning
+              <OrbitControls
+                enableZoom={false}
+                enableRotate={!(isMobile || isTablet)}
+                enablePan={false}
+              />
+
+              <Suspense fallback={<CanvasLoader />}>
+                <Developer
+                  position-y={-3}
+                  scale={3}
+                  animationName={animationName}
                 />
-
-                <Suspense fallback={<CanvasLoader />}>
-                  <Developer
-                    position-y={-3}
-                    scale={3}
-                    animationName={animationName}
-                  />
-                </Suspense>
-              </Canvas>
-            </div>
+              </Suspense>
+            </Canvas>
           </div>
 
           <div className="xl:col-span-5">
