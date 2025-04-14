@@ -92,6 +92,24 @@ input, textarea {
     @apply grid grid-cols-1 xl:grid-cols-12 gap-10;
   }
 
+  .hero-3d-container {
+    position: relative;
+    height: 100vh; /* Adjust based on your needs, like 100vh for fullscreen */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .hero-3d-container canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
   .hero-layout {
     @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
   }

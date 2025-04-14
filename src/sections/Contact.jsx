@@ -8,7 +8,6 @@ import CanvasLoader from "../components/CanvasLoader"; // If you have a loader c
 import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {
-
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
@@ -79,11 +78,13 @@ const Contact = () => {
                 <ambientLight intensity={1} />
                 <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                 <directionalLight position={[10, 10, 10]} intensity={1} />
+                
                 <OrbitControls
-  enableZoom={false}
-  enableRotate={!(isMobile || isTablet)}
-  enablePan={false}
-/>
+                  enableZoom={false}  // Disable zoom
+                  enableRotate={!(isMobile || isTablet)} // Disable rotation on mobile/tablet
+                  enablePan={false} // Disable panning
+                  enableTouch={false}  // Disable touch events entirely on mobile/tablet
+                />
 
                 <Suspense fallback={<CanvasLoader />}>
                   <Developer

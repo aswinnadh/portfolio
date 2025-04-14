@@ -36,6 +36,7 @@ const Projects = () => {
       />
 
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full items-center">
+        {/* Left side project card */}
         <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
           <MotionDiv
             key={currentProject.title}
@@ -141,14 +142,15 @@ const Projects = () => {
           </MotionDiv>
         </div>
 
-        <div className="rounded-lg h-96 md:h-full">
+        {/* Right side 3D model canvas */}
+        <div className="rounded-lg h-96">
           <Canvas>
             <ambientLight intensity={Math.PI} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
             <Center>
               <Suspense fallback={<CanvasLoader />}>
                 <group
-                  scale={2}
+                  scale={isMobile ? 1.5 : isTablet ? 1.8 : 2} // Increased scale for mobile/tablet
                   position={[-0.1, -2.8, 0.5]}
                   rotation={[0, -0.1, 0]}
                 >
@@ -157,10 +159,11 @@ const Projects = () => {
               </Suspense>
             </Center>
 
+            {/* Controls for rotation, zoom, etc. */}
             <OrbitControls
-              enableZoom={!(isMobile || isTablet)}
-              enableRotate={!(isMobile || isTablet)}
-              enablePan={false}
+              enableZoom={!(isMobile || isTablet)} // Disable zoom on mobile/tablet
+              enableRotate={!(isMobile || isTablet)} // Disable rotation on mobile/tablet
+              enablePan={false} // Disable panning
               maxPolarAngle={Math.PI / 2}
             />
           </Canvas>
