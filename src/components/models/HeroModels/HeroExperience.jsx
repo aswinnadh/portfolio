@@ -15,7 +15,10 @@ const HeroExperience = () => {
   return (
     <div className="hero-3d-container">
       <Canvas
-        camera={{ position: [0, 0, 20], fov: 45 }}
+        camera={{
+          position: isMobile || isTablet ? [0, 0, 10] : [0, 0, 20], // Adjust for mobile/tablet
+          fov: isMobile || isTablet ? 50 : 45, // Adjust FOV for mobile/tablet
+        }}
         style={{
           width: "100%",
           height: "100%",
@@ -24,7 +27,8 @@ const HeroExperience = () => {
           left: 0,
         }}
       >
-        <ambientLight intensity={0.2} color="#1a1a40" />
+        <ambientLight intensity={0.5} color="#1a1a40" />
+        <directionalLight position={[10, 10, 10]} intensity={1} />
         <OrbitControls
           enablePan={false}
           enableZoom={!isTablet && !isMobile}
@@ -43,7 +47,7 @@ const HeroExperience = () => {
               position={[0, -3.5, 0]}
               rotation={[0, -Math.PI / 4, 0]}
             >
-              <Room />
+              <Room isMobile={isMobile} />
             </group>
           </HeroCamera>
         </Suspense>

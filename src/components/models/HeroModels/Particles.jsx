@@ -1,18 +1,13 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const Particles = ({ count = 200 }) => {
+const Particles = ({ count = 100 }) => {
   const mesh = useRef();
-
   const particles = useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
       temp.push({
-        position: [
-          (Math.random() - 0.5) * 10,
-          Math.random() * 10 + 5, // higher starting point
-          (Math.random() - 0.5) * 10,
-        ],
+        position: [(Math.random() - 0.5) * 10, Math.random() * 10 + 5, (Math.random() - 0.5) * 10],
         speed: 0.005 + Math.random() * 0.001,
       });
     }
@@ -40,20 +35,9 @@ const Particles = ({ count = 200 }) => {
   return (
     <points ref={mesh}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
-        />
+        <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial
-        color="#ffffff"
-        size={0.05}
-        transparent
-        opacity={0.9}
-        depthWrite={false}
-      />
+      <pointsMaterial color="#ffffff" size={0.05} transparent opacity={0.9} depthWrite={false} />
     </points>
   );
 };

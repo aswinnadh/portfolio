@@ -11,7 +11,7 @@ const Contact = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
-  const [animationName, setAnimationName] = useState("idle");
+  const [animationName, setAnimationName] = useState("salute");
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -70,8 +70,8 @@ const Contact = () => {
                 isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"
               }`}>
             <div
-              onClick={() => setAnimationName("clapping")}
-              onPointerOver={() => setAnimationName("salute")}
+              onClick={() => setAnimationName("salute")}
+              onPointerOver={() => setAnimationName("victory")}
               onPointerOut={() => setAnimationName("idle")}
               className={`bg-zinc-900 w-full h-full rounded-3xl overflow-hidden ${
                 isMobile || isTablet ? "scroll-pass-through" : "hover:cursor-grab"
@@ -110,10 +110,7 @@ const Contact = () => {
                 className="w-full flex flex-col gap-7"
               >
                 <div
-                  onClick={() => setAnimationName("victory")}
-                  onPointerOver={() => setAnimationName("victory")}
-                  onPointerOut={() => setAnimationName("idle")}
-                  className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
+                  
                 >
                   <label htmlFor="name">Your name</label>
                   <input
@@ -128,10 +125,7 @@ const Contact = () => {
                 </div>
 
                 <div
-                className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
-                  onClick={() => setAnimationName("clapping")}
-                  onPointerOver={() => setAnimationName("clapping")}
-                  onPointerOut={() => setAnimationName("idle")}
+                
                 >
                   <label htmlFor="email">Your Email</label>
                   <input
@@ -146,10 +140,7 @@ const Contact = () => {
                 </div>
 
                 <div
-                className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
-                  onClick={() => setAnimationName("salute")}
-                  onPointerOver={() => setAnimationName("salute")}
-                  onPointerOut={() => setAnimationName("idle")}
+                
                 >
                   <label htmlFor="message">Your Message</label>
                   <textarea
@@ -164,9 +155,6 @@ const Contact = () => {
                 </div>
 
                 <button 
-                className={`${isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"}`}
-                  onPointerOver={() => setAnimationName("victory")}
-                  onPointerOut={() => setAnimationName("idle")}
                   type="submit"
                 >
                   <div className="cta-button group">
