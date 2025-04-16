@@ -13,6 +13,7 @@ const projectCount = myProjects.length;
 const Projects = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
 
   const MotionDiv = motion.div;
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
@@ -143,6 +144,7 @@ const Projects = () => {
         </div>
 
         {/* Right side 3D model canvas */}
+        {isDesktop && (
         <div className="rounded-lg h-96">
           <Canvas>
             <ambientLight intensity={Math.PI} />
@@ -168,6 +170,7 @@ const Projects = () => {
             />
           </Canvas>
         </div>
+        )}
       </div>
     </section>
   );

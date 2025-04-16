@@ -5,11 +5,10 @@ import { useMediaQuery } from "react-responsive";
 
 import TitleHeader from "../components/TitleHeader";
 import Developer from "../components/models/Contact/Developer";
-import CanvasLoader from "../components/CanvasLoader"; // If you have a loader component
+import CanvasLoader from "../components/CanvasLoader";
 
 const Contact = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
 
   const [animationName, setAnimationName] = useState("salute");
   const formRef = useRef(null);
@@ -65,41 +64,37 @@ const Contact = () => {
         />
 
         <div className="grid-12-cols mt-16">
-          {/* 3D Model Canvas */}
-          <div className={`xl:col-span-7 min-h-96 ${
-                isMobile || isTablet ? "pointer-events-none" : "hover:cursor-grab"
-              }`}>
-            <div
-              onClick={() => setAnimationName("salute")}
-              onPointerOver={() => setAnimationName("victory")}
-              onPointerOut={() => setAnimationName("idle")}
-              className={`bg-zinc-900 w-full h-full rounded-3xl overflow-hidden ${
-                isMobile || isTablet ? "scroll-pass-through" : "hover:cursor-grab"
-              }`}
-              
-              
-            >
-              <Canvas >
-                <ambientLight intensity={1} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-                <directionalLight position={[10, 10, 10]} intensity={1} />
+          {/* 3D Model Canvas - Only for Desktop */}
+          {isDesktop && (
+            <div className="xl:col-span-7 min-h-96 hover:cursor-grab">
+              <div
+                onClick={() => setAnimationName("salute")}
+                onPointerOver={() => setAnimationName("victory")}
+                onPointerOut={() => setAnimationName("idle")}
+                className="bg-zinc-900 w-full h-full rounded-3xl overflow-hidden hover:cursor-grab"
+              >
+                <Canvas>
+                  <ambientLight intensity={1} />
+                  <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+                  <directionalLight position={[10, 10, 10]} intensity={1} />
 
-                <OrbitControls
-                  enableZoom={false}
-                  enableRotate={!(isMobile || isTablet)}
-                  enablePan={false}
-                />
-
-                <Suspense fallback={<CanvasLoader />}>
-                  <Developer
-                    position-y={-3}
-                    scale={3}
-                    animationName={animationName}
+                  <OrbitControls
+                    enableZoom={false}
+                    enableRotate={true}
+                    enablePan={false}
                   />
-                </Suspense>
-              </Canvas>
+
+                  <Suspense fallback={<CanvasLoader />}>
+                    <Developer
+                      position-y={-3}
+                      scale={3}
+                      animationName={animationName}
+                    />
+                  </Suspense>
+                </Canvas>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Contact Form */}
           <div className="xl:col-span-5">
@@ -109,9 +104,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-7"
               >
-                <div
-                  
-                >
+                <div>
                   <label htmlFor="name">Your name</label>
                   <input
                     type="text"
@@ -124,9 +117,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <div
-                
-                >
+                <div>
                   <label htmlFor="email">Your Email</label>
                   <input
                     type="email"
@@ -139,9 +130,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <div
-                
-                >
+                <div>
                   <label htmlFor="message">Your Message</label>
                   <textarea
                     id="message"
@@ -154,9 +143,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <button 
-                  type="submit"
-                >
+                <button type="submit">
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">

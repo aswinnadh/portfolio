@@ -349,7 +349,7 @@ const myProjects = [
       "Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Alter combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.",
     href: "https://alter-five.vercel.app/",
     github: "https://github.com/aswinnadh/alter",
-    texture: "/images/textures/project/alter-vedio.mp4",
+    texture: "/images/textures/project/alter-video.mp4",
     logo: "/images/projectLogos/alter-logo.png",
     logoStyle: {
       backgroundColor: "#1C1A43",
@@ -387,7 +387,7 @@ const myProjects = [
       "Developed using Node.js, Express, MongoDB, and EJS templating, BuyIt integrates Google authentication and Razorpay for secure payments. The platform also features a powerful admin panel to manage products, users, purchases, and coupon systems with full backend control.",
     href: "https://buyit-huio.onrender.com/",
     github: "https://github.com/aswinnadh/buyit",
-    texture: "/images/textures/project/buyit-vedio.mp4",
+    texture: "/images/textures/project/buyit-video.mp4",
     logo: "/images/projectLogos/buyit-logo.png",
     logoStyle: {
       backgroundColor: "#13202F",
@@ -425,7 +425,7 @@ const myProjects = [
       "Developed using React for the web and React Native for Android, MovieFlix combines TailwindCSS and Appwrite to deliver a seamless, responsive interface with powerful backend support.",
     href: "https://expo.dev/accounts/aswin_nadh/projects/movie-app-native/builds/95d69da3-6d94-4ffe-9f18-f774f9f96168",
     github: "https://github.com/aswinnadh/android-movie-app",
-    texture: "/images/textures/project/movie-vedio.mp4",
+    texture: "/images/textures/project/movie-video.mp4",
     logo: "/images/projectLogos/m-logo.png",
     logoStyle: {
       backgroundColor: "#0E1F38",
@@ -463,7 +463,7 @@ const myProjects = [
       "Built using Node.js, Express, MongoDB, and EJS, Mystic supports verified blog publishing, real-time interactions, and a seamless user experience for both writers and readers.",
     href: "http://mystic-jade.vercel.app/",
     github: "https://github.com/aswinnadh/mystic",
-    texture: "/images/textures/project/mystics-vedio.mp4",
+    texture: "/images/textures/project/mystics-video.mp4",
     logo: "/images/projectLogos/mystic-logo.png",
     logoStyle: {
       backgroundColor: "#60f5a1",

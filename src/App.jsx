@@ -10,7 +10,9 @@ import Works from './sections/Works'
 // import Testimonials from './sections/Testimonials'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import { useMediaQuery } from 'react-responsive';
 const App = () => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
   return (
    <>
    <NavBar/>
@@ -19,7 +21,9 @@ const App = () => {
    <LogoShowcase />
    <FeatureCards />
    <Experience />
+   {isDesktop && (
    <TechStack />
+   )}
    <Works />
    {/* <Testimonials /> */}
     <Contact />
