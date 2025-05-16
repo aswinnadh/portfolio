@@ -133,7 +133,7 @@ const logoIconsList = [
 const abilities = [
   {
     imgPath: "/images/icons/time.png",
-    
+
     title: "Self-Taught Full-Stack Developer",
     desc: "Driven by curiosity and passion, I specialize in JavaScript-based tools and frameworks like React, Node.js, Express, and MongoDB.",
   },
@@ -311,37 +311,86 @@ const socialImgs = [
   {
     name: "github",
     imgPath: "/images/socialmedias/github.png",
-    url:"https://github.com/aswinnadh"
+    url: "https://github.com/aswinnadh",
   },
   {
     name: "linkedin",
     imgPath: "/images/socialmedias/linkedin.png",
-    url:"https://www.linkedin.com/in/aswin-nadh"
+    url: "https://www.linkedin.com/in/aswin-nadh",
   },
   {
     name: "insta",
     imgPath: "/images/socialmedias/insta.png",
-    url:"https://www.instagram.com/aswin_nadh_"
+    url: "https://www.instagram.com/aswin_nadh_",
   },
   {
     name: "fb",
     imgPath: "/images/socialmedias/fb.png",
-    url:"https://www.facebook.com/share/1555Z3HCR5/"
+    url: "https://www.facebook.com/share/1555Z3HCR5/",
   },
   {
     name: "x",
     imgPath: "/images/socialmedias/x.png",
-    url:"https://x.com/aswinnadh9803"
+    url: "https://x.com/aswinnadh9803",
   },
-  
+
   {
     name: "leetcode",
     imgPath: "/images/socialmedias/leetcode.png",
-    url:"https://leetcode.com/u/aswinnadh/"
+    url: "https://leetcode.com/u/aswinnadh/",
   },
 ];
 
 const myProjects = [
+  {
+    title: "PrepWell – AI Interview Preparation Platform",
+    desc: "PrepWell is a smart AI-powered platform designed to help users practice technical interviews through natural voice conversations, dynamic question generation, and real-time feedback.",
+    subdesc:
+      "Built with Next.js, Vapi AI, Gemini AI, and Firebase, PrepWell offers a fully conversational and personalized mock interview experience—ideal for anyone preparing for job interviews in tech.",
+    href: "https://prepwell-ai-interview.vercel.app",
+    github: "https://github.com/aswinnadh/prepwell-ai-interview",
+    texture: "/images/textures/project/prepwell-video.mp4",
+    logo: "/images/projectLogos/prep-logo.svg",
+    logoStyle: {
+      backgroundColor: "#0E1322",
+      border: "0.2px solid #1F2937",
+      boxShadow: "0px 0px 60px 0px #00C2FF40",
+    },
+    spotlight: "/images/spotlights/spotlight4.png",
+    tags: [
+      {
+        id: 1,
+        name: "Next.js",
+        path: "/images/techStackLogos/next.png",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/images/techStackLogos/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "Typescript",
+        path: "/images/techStackLogos/typescript.png", // add custom image if needed
+      },
+
+      {
+        id: 4,
+        name: "Firebase",
+        path: "/images/techStackLogos/firebase.png",
+      },
+      {
+        id: 5,
+        name: "Vapi AI",
+        path: "/images/techStackLogos/vapi.png", // add custom image if needed
+      },
+      {
+        id: 6,
+        name: "Gemini AI",
+        path: "/images/techStackLogos/gemini.png", // add custom image if needed
+      },
+    ],
+  },
   {
     title: "Alter - AI Photo Manipulation App",
     desc: "Alter is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.",
