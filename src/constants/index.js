@@ -347,7 +347,7 @@ const myProjects = [
     desc: "PrepWell is a smart AI-powered platform designed to help users practice technical interviews through natural voice conversations, dynamic question generation, and real-time feedback.",
     subdesc:
       "Built with Next.js, Vapi AI, Gemini AI, and Firebase, PrepWell offers a fully conversational and personalized mock interview experience—ideal for anyone preparing for job interviews in tech.",
-    href: "https://prepwell-ai-interview.vercel.app",
+    href: "https://prepwell-ai-interview.vercel.app/",
     github: "https://github.com/aswinnadh/prepwell-ai-interview",
     texture: "/images/textures/project/prepwell-video.mp4",
     logo: "/images/projectLogos/prep-logo.svg",

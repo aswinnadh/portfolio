@@ -57,7 +57,7 @@ const Projects = () => {
               <img
                 src={currentProject.spotlight}
                 alt="spotlight"
-                className="w-full h-96 object-cover rounded-xl"
+                className="w-full h-96 object-cover rounded-xl pointer-events-none"
               />
             </div>
             <div
@@ -145,31 +145,31 @@ const Projects = () => {
 
         {/* Right side 3D model canvas */}
         {isDesktop && (
-        <div className="rounded-lg h-96">
-          <Canvas>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
-            <Center>
-              <Suspense fallback={<CanvasLoader />}>
-                <group
-                  scale={isMobile ? 1.5 : isTablet ? 1.8 : 2} // Increased scale for mobile/tablet
-                  position={[-0.1, -2.8, 0.5]}
-                  rotation={[0, -0.1, 0]}
-                >
-                  <DemoComputer texture={currentProject.texture} />
-                </group>
-              </Suspense>
-            </Center>
+          <div className="rounded-lg h-96">
+            <Canvas>
+              <ambientLight intensity={Math.PI} />
+              <directionalLight position={[10, 10, 5]} intensity={1} />
+              <Center>
+                <Suspense fallback={<CanvasLoader />}>
+                  <group
+                    scale={isMobile ? 1.5 : isTablet ? 1.8 : 2} // Increased scale for mobile/tablet
+                    position={[-0.1, -2.8, 0.5]}
+                    rotation={[0, -0.1, 0]}
+                  >
+                    <DemoComputer texture={currentProject.texture} />
+                  </group>
+                </Suspense>
+              </Center>
 
-            {/* Controls for rotation, zoom, etc. */}
-            <OrbitControls
-              enableZoom={!(isMobile || isTablet)} // Disable zoom on mobile/tablet
-              enableRotate={!(isMobile || isTablet)} // Disable rotation on mobile/tablet
-              enablePan={false} // Disable panning
-              maxPolarAngle={Math.PI / 2}
-            />
-          </Canvas>
-        </div>
+              {/* Controls for rotation, zoom, etc. */}
+              <OrbitControls
+                enableZoom={!(isMobile || isTablet)} // Disable zoom on mobile/tablet
+                enableRotate={!(isMobile || isTablet)} // Disable rotation on mobile/tablet
+                enablePan={false} // Disable panning
+                maxPolarAngle={Math.PI / 2}
+              />
+            </Canvas>
+          </div>
         )}
       </div>
     </section>
