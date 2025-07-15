@@ -398,13 +398,13 @@ input, textarea {
   width: 2px;
   background: linear-gradient(
     0deg,
-    rgba(69, 222, 196, 0) 0%,
-    #62e0ff 25%,
-    #52aeff 37.51%,
-    #fd5c79 62.83%,
-    #6d45ce 92.91%
+    rgba(194, 24, 91, 0) 0%,   /* transparent deep rose */
+    #C2185B 25%,               /* deep rose */
+    #4B0082 60%,               /* dark purple */
+    #FFD700 100%              /* gold / deep yellow */
   );
 }
+
 
 .gradient-edge:nth-of-type(1) {
   left: 0;

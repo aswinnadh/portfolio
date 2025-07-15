@@ -5,9 +5,7 @@ import Button from "../components/Botton";
 import HeroExperience from "../components/models/HeroModels/HeroExperience";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Canvas } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei"; // Missing import
-import AnimatedCounter from "../components/AnimatedCounter";
+
 
 const Hero = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });

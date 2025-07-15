@@ -153,7 +153,7 @@ const Projects = () => {
                 <Suspense fallback={<CanvasLoader />}>
                   <group
                     scale={isMobile ? 1.5 : isTablet ? 1.8 : 2} // Increased scale for mobile/tablet
-                    position={[-0.1, -2.8, 0.5]}
+                    position={[-0.1, -2.7, 1.0]}
                     rotation={[0, -0.1, 0]}
                   >
                     <DemoComputer texture={currentProject.texture} />

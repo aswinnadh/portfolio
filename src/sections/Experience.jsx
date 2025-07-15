@@ -106,7 +106,11 @@ const Experience = () => {
                 <div className="xl:w-2/6">
                   <GlowCard card={card}>
                     <div>
-                      <img className="w-10 h-10" src={card.imgPath} alt="exp-img" />
+                      <img
+                        className="w-10 h-10"
+                        src={card.imgPath}
+                        alt="exp-img"
+                      />
                     </div>
                   </GlowCard>
                 </div>
@@ -121,13 +125,21 @@ const Experience = () => {
                         <img src={card.logoPath} alt="logo" />
                       </div>
                       <div>
-                        <h1 className="font-semibold text-3xl">{card.title}</h1>
+                        <a
+                          href={card.link}
+                          className="flex items-center gap-2 cursor-pointer text-white-600"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <h1 className="font-semibold text-3xl">
+                            {card.title}
+                          </h1>
+                        </a>
+
                         <p className="my-5 text-white-50">
                           🗓️&nbsp;{card.date}
                         </p>
-                        <p className="text-[#839CB5] italic">
-                          Abilities
-                        </p>
+                        <p className="text-[#839CB5] italic">Abilities</p>
                         <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
                           {card.responsibilities.map(
                             (responsibility, index) => (

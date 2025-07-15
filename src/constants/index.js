@@ -208,11 +208,26 @@ const techStackIcons = [
 const expCards = [
   {
     review:
+      "Working as a Software Developer at Tabbie Me has allowed me to contribute to real-world projects and collaborate with experienced teams. I’ve been involved in developing and maintaining scalable applications using modern technologies while refining my problem-solving and coding practices.",
+    imgPath: "/images/expLogos/tabbie.png",
+    logoPath: "/images/expLogos/tabbie.png",
+    title: "Software Developer – Tabbie Me",
+    date: "2025 – Present",
+    link:"https://www.tabbiemath.com/",
+    responsibilities: [
+      "Develop and maintain full-stack applications using React, Node.js, JavaScript, TypeScript, and Python.",
+      "Collaborate with cross-functional teams to deliver new features and improve existing functionality.",
+      "Implement best practices in coding, testing, and deployment using modern frameworks and tools.",
+    ],
+  },
+  {
+    review:
       "Working independently as a Full Stack Developer helped me understand how to build real-world applications from scratch. I’ve gained hands-on experience building responsive interfaces and efficient backends while solving challenges in deployment and scaling.",
     imgPath: "/images/expLogos/fullstack-logo.png",
     logoPath: "/images/expLogos/fullstack-logo.png",
     title: "Full Stack Developer – Personal Projects",
-    date: "2024 - Present",
+    date: "2024 - 2025",
+    link:null,
     responsibilities: [
       "Built full-stack apps using Node.js, Express, and MongoDB with SQL support.",
       "Developed responsive interfaces using React, React Native, and Next.js.",
@@ -221,31 +236,20 @@ const expCards = [
   },
   {
     review:
-      "As a frontend developer, I focused on improving my skills in mobile app design using Flutter and explored different ways to create smooth, user-friendly interfaces. This phase helped me understand clean UI practices and how to bring designs to life.",
+      "Through my journey in frontend and web design, I developed a solid foundation in UI development. I worked on mobile and web projects, applied responsive design principles, and gained experience in layout systems, animations, and clean code practices.",
     imgPath: "/images/expLogos/frondend-logo.png",
     logoPath: "/images/expLogos/frondend-logo.png",
-    title: "Frontend Developer – Learning & Projects",
-    date: "2023",
+    title: "Frontend & Web Developer – Learning & Projects",
+    date: "2022 – 2023",
+    link:null,
     responsibilities: [
-      "Built simple mobile UIs using Flutter and Dart, focusing on clean design.",
-      "Explored app state management, layout systems, and animations.",
-      "Created multiple frontend projects to apply and practice new concepts.",
-    ],
-  },
-  {
-    review:
-      "Starting with web design introduced me to the core building blocks of the web. I learned how to structure pages properly, apply clean styling, and make responsive, visually appealing layouts.",
-    imgPath: "/images/expLogos/design-logo.png",
-    logoPath: "/images/expLogos/design-logo.png",
-    title: "Web Designer & Developer",
-    date: "2022",
-    responsibilities: [
-      "Created websites using HTML, CSS, and Bootstrap with responsive layouts.",
-      "Focused on layout structure, spacing, and visual hierarchy.",
-      "Built practice projects to sharpen understanding of modern UI design.",
+      "Built mobile UIs using Flutter and Dart, focusing on clean design and smooth animations.",
+      "Created websites with HTML, CSS, and Bootstrap focusing on layout, spacing, and responsiveness.",
+      "Practiced UI/UX principles and built several projects to sharpen frontend development skills.",
     ],
   },
 ];
+
 
 // const expLogos = [
 //   {

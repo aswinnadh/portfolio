@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import { miniProjects } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 import { PinContainer } from "../components/models/Works/3d-pin";
+
 const Works = () => {
   const [visible, setVisible] = useState(4);
+
   const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 4);
+    if (visible >= miniProjects.length) {
+      setVisible(4); // Collapse
+    } else {
+      setVisible((prevValue) => prevValue + 4); // Show more
+    }
   };
+
+  const isAllVisible = visible >= miniProjects.length;
+
   return (
     <section id="all-works" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
@@ -15,8 +24,8 @@ const Works = () => {
           sub="Smaller projects that fuel my continuous growth 🌱"
         />
         <div className="w-full padding-x-lg py-10 ">
-          <div className="mx-auto grid-4-cols py-10 gap-20  ">
-            {miniProjects.slice(0, visible).map(({  title, desc,liveLink,github,imgPath }) => (
+          <div className="mx-auto grid-4-cols py-10 gap-20">
+            {miniProjects.slice(0, visible).map(({ title, desc, liveLink, github, imgPath }) => (
               <PinContainer
                 key={title}
                 title={desc}
@@ -51,7 +60,7 @@ const Works = () => {
                     <img
                       src="/images/socialmedias/github.png"
                       alt="github"
-                      className="w-6 h-6  object-contain"
+                      className="w-6 h-6 object-contain"
                     />
                   </a>
                 </div>
@@ -63,9 +72,12 @@ const Works = () => {
           <button onClick={showMoreItems} type="button">
             <div className="cta-button group w-60">
               <div className="bg-circle" />
-              <p className="text">See more</p>
+              <p className="text">{isAllVisible ? "See less" : "See more"}</p>
               <div className="arrow-wrapper">
-                <img src="/images/arrow-down.svg" alt="arrow" />
+                <img
+                  src={isAllVisible ? "/images/arrow-up.svg" : "/images/arrow-down.svg"}
+                  alt="arrow"
+                />
               </div>
             </div>
           </button>
